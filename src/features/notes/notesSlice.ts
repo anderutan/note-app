@@ -20,7 +20,7 @@ const initialState: NotesState[] = [
     lastModifiedTime: currentTime.time,
     lastModifiedDate: currentTime.date,
     createdTime: '12.25pm',
-    createdDate: '5 June 2024',
+    createdDate: '3 June 2024',
   },
   {
     id: '2',
@@ -28,9 +28,19 @@ const initialState: NotesState[] = [
     description:
       'Second note description! There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
     lastModifiedTime: '12.25pm',
-    lastModifiedDate: '5 June 2024',
+    lastModifiedDate: '6 June 2024',
     createdTime: '12.25pm',
-    createdDate: '5 June 2024',
+    createdDate: '2 June 2024',
+  },
+  {
+    id: '3',
+    title: '333 Note!',
+    description:
+      '333 note description! There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
+    lastModifiedTime: '1.25pm',
+    lastModifiedDate: '7 June 2024',
+    createdTime: '12.25pm',
+    createdDate: '2 June 2024',
   },
 ];
 

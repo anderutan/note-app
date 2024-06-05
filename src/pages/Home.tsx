@@ -7,7 +7,27 @@ import type { NotesState } from '../features/notes/notesSlice';
 const Home = () => {
   const notes = useAppSelector((state) => state.Notes);
 
-  const renderedNotes = notes.map((note: NotesState) => (
+  const orderedNotes = notes.slice().sort((a, b) => {
+    const dateA = a.lastModifiedDate ? new Date(a.lastModifiedDate) : null;
+    const dateB = b.lastModifiedDate ? new Date(b.lastModifiedDate) : null;
+
+    // Compare lastModifiedDate
+    if (dateA && dateB) {
+      const dateComparison = dateB.getTime() - dateA.getTime();
+      if (dateComparison !== 0) {
+        return dateComparison;
+      }
+    } else if (dateA && !dateB) {
+      return -1; // Move undefined dates to the end
+    } else if (!dateA && dateB) {
+      return 1; // Move undefined dates to the end
+    }
+
+    // Compare lastModifiedTime
+    return (b?.lastModifiedTime || '').localeCompare(a?.lastModifiedTime || '');
+  });
+
+  const renderedNotes = orderedNotes.map((note: NotesState) => (
     <NoteCard note={note} key={note.id} />
   ));
 

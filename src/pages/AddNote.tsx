@@ -5,7 +5,7 @@ import Button from '../components/Button';
 import { useAppDispatch } from '../state/hooks';
 import { noteAdd } from '../features/notes/notesSlice';
 import { nanoid } from '@reduxjs/toolkit';
-import { currentTime } from '../utils/currentTime';
+import { formatCurrentTime } from '../utils/currentTime';
 
 const AddNote = () => {
   const [title, setTitle] = useState('');
@@ -26,10 +26,10 @@ const AddNote = () => {
           id: nanoid(),
           title,
           description: desc,
-          lastModifiedTime: currentTime.time,
-          lastModifiedDate: currentTime.date,
-          createdTime: currentTime.time,
-          createdDate: currentTime.date,
+          lastModifiedTime: formatCurrentTime().time,
+          lastModifiedDate: formatCurrentTime().date,
+          createdTime: formatCurrentTime().time,
+          createdDate: formatCurrentTime().date,
         })
       );
       setTitle('');
