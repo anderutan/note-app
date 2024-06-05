@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { currentTime } from '../../utils/currentTime';
 
 export interface NotesState {
-  id: number;
+  id: string;
   title: string;
   description: string;
   lastModifiedTime?: string;
@@ -13,7 +13,7 @@ export interface NotesState {
 
 const initialState: NotesState[] = [
   {
-    id: 1,
+    id: '1',
     title: 'First Note!',
     description:
       'First note description! It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
@@ -23,7 +23,7 @@ const initialState: NotesState[] = [
     createdDate: '5 June 2024',
   },
   {
-    id: 2,
+    id: '2',
     title: 'Second Note!',
     description:
       'Second note description! There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
