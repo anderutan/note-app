@@ -28,6 +28,10 @@ const SingleNotePage = () => {
       <article className='flex-1 px-8 pt-3'>
         <h2 className='text-xl font-medium mb-2'>{note?.title}</h2>
         <p className='text-justify'>{note?.description}</p>
+        <div className='text-xs text-slate-400 text-right mt-3'>
+          <p>{`Last Modified: ${note?.lastModifiedDate} ${note?.lastModifiedTime}`}</p>
+          <p>{`Created: ${note?.createdDate} ${note?.createdTime}`}</p>
+        </div>
       </article>
       <div className='px-8'>
         <Link to={`/editnote/${noteId}`}>

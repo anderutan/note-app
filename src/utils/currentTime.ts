@@ -1,4 +1,4 @@
-function formatCurrentTime() {
+export function formatCurrentTime() {
   const date = new Date();
 
   // Options for the date part

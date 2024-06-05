@@ -41,9 +41,20 @@ const notesSlice = createSlice({
     noteAdd(state, action) {
       state.push(action.payload);
     },
+    noteUpdated(state, action) {
+      const { id, title, description, lastModifiedTime, lastModifiedDate } =
+        action.payload;
+      const existingNote = state.find((note) => note.id === id);
+      if (existingNote) {
+        existingNote.title = title;
+        existingNote.description = description;
+        existingNote.lastModifiedTime = lastModifiedTime;
+        existingNote.lastModifiedDate = lastModifiedDate;
+      }
+    },
   },
 });
 
-export const { noteAdd } = notesSlice.actions;
+export const { noteAdd, noteUpdated } = notesSlice.actions;
 
 export default notesSlice.reducer;
