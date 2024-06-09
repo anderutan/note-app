@@ -1,14 +1,24 @@
-import { Link, useParams } from 'react-router-dom';
-import { useAppSelector } from '../state/hooks';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../state/hooks';
 import { FaLongArrowAltLeft } from 'react-icons/fa';
 import Button from '../components/Button';
+import { noteDeleted } from '../features/notes/notesSlice';
 
 const SingleNotePage = () => {
   const { noteId } = useParams();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const note = useAppSelector((state) =>
     state.Notes.find((note) => note.id === noteId)
   );
+
+  const handleDeleteBtn = () => {
+    if (confirm('Are you sure to remove this note?')) {
+      dispatch(noteDeleted(noteId));
+      navigate('/');
+    }
+  };
 
   if (!note) {
     return (
@@ -37,7 +47,11 @@ const SingleNotePage = () => {
         <Link to={`/editnote/${noteId}`}>
           <Button name='Edit Note' caseType='normal' />
         </Link>
-        <Button name='Delete Note' caseType='delete' />
+        <Button
+          name='Delete Note'
+          caseType='delete'
+          onClick={handleDeleteBtn}
+        />
       </div>
     </section>
   );

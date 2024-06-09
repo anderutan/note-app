@@ -20,15 +20,15 @@ const initialState: NotesState[] = [
     lastModifiedTime: currentTime.time,
     lastModifiedDate: currentTime.date,
     createdTime: '12.25pm',
-    createdDate: '3 June 2024',
+    createdDate: '6 June 2024',
   },
   {
     id: '2',
     title: 'Second Note!',
     description:
       'Second note description! There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
-    lastModifiedTime: '12.25pm',
-    lastModifiedDate: '6 June 2024',
+    lastModifiedTime: '10.25am',
+    lastModifiedDate: '5 June 2024',
     createdTime: '12.25pm',
     createdDate: '2 June 2024',
   },
@@ -38,7 +38,7 @@ const initialState: NotesState[] = [
     description:
       '333 note description! There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
     lastModifiedTime: '1.25pm',
-    lastModifiedDate: '7 June 2024',
+    lastModifiedDate: '4 June 2024',
     createdTime: '12.25pm',
     createdDate: '2 June 2024',
   },
@@ -62,9 +62,12 @@ const notesSlice = createSlice({
         existingNote.lastModifiedDate = lastModifiedDate;
       }
     },
+    noteDeleted(state, action) {
+      return state.filter((note) => note.id !== action.payload);
+    },
   },
 });
 
-export const { noteAdd, noteUpdated } = notesSlice.actions;
+export const { noteAdd, noteUpdated, noteDeleted } = notesSlice.actions;
 
 export default notesSlice.reducer;

@@ -68,6 +68,7 @@ const EditNote = () => {
             value={desc}
             onChange={onDescChange}
             className='p-3 rounded-lg overflow-hidden text-xs'
+            style={{ overflowY: 'scroll' }}
           />
         </form>
         <div className='text-xs text-slate-400 text-right mt-3'>
