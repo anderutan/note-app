@@ -32,7 +32,7 @@ const Home = () => {
   ));
 
   return (
-    <main className='w-full h-screen relative p-5 bg-[#E7E7E7]'>
+    <main className='w-full h-screen relative p-5 bg-[#E7E7E7] max-w-[640px] mx-auto'>
       <section>
         <div>
           <h1 className='text-3xl font-bold text-center pb-5'>My Note</h1>

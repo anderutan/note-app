@@ -29,7 +29,7 @@ const SingleNotePage = () => {
   }
 
   return (
-    <section className='w-full h-screen flex flex-col'>
+    <section className='w-full h-screen flex flex-col max-w-[640px] mx-auto'>
       <div className='py-4 px-8 border-b-2'>
         <Link to='/'>
           <FaLongArrowAltLeft className='text-xl' />

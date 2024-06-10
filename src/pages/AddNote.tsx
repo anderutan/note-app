@@ -39,7 +39,7 @@ const AddNote = () => {
   };
 
   return (
-    <section className='w-full h-screen bg-[#E7E7E7] flex flex-col'>
+    <section className='w-full h-screen bg-[#E7E7E7] flex flex-col max-w-[640px] mx-auto'>
       <div className='py-4 px-8 border-b-2 border-white'>
         <Link to='/'>
           <FaLongArrowAltLeft className='text-xl' />
